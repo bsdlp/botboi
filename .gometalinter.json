@@ -1,0 +1,18 @@
+{
+  "Enable": [
+    "deadcode",
+    "errcheck",
+    "gofmt",
+    "goimports",
+    "ineffassign",
+    "megacheck",
+    "misspell",
+    "vet"
+  ],
+  "Vendor": true,
+  "Exclude": [
+    "_tools",
+    "vendor",
+    "usr/local"
+  ]
+}

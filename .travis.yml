@@ -1,0 +1,15 @@
+notifications:
+  email: false
+sudo: required
+language: go
+go:
+- '1.11'
+services:
+- docker
+jobs:
+  include:
+  - stage: build
+    script:
+    - make lint
+    - make test
+    - make build

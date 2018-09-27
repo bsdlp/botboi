@@ -1,0 +1,9 @@
+{
+  "Tools": [
+    {
+      "Repository": "github.com/alecthomas/gometalinter",
+      "Commit": "17a7ffa42374937bfecabfb8d2efbd4db0c26741"
+    }
+  ],
+  "RetoolVersion": "1.3.3"
+}
