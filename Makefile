@@ -16,4 +16,4 @@ test:
 build_binaries:
 	$(docker_go) go build -o build/botboi .
 
-build: build_binaries build_lambdas
+build: build_binaries
