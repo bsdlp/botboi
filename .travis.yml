@@ -6,6 +6,10 @@ go:
 - '1.11'
 services:
 - docker
+before_deploy:
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_LOGIN" --password-stdin
+before_script:
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_LOGIN" --password-stdin
 jobs:
   include:
   - stage: build
@@ -13,3 +17,9 @@ jobs:
     - make lint
     - make test
     - make build
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: make deploy
+  on:
+    branch: master

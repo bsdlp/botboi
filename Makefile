@@ -13,7 +13,15 @@ lint:
 test:
 	$(docker_go) go test ./...
 
-build_binaries:
+build_binary:
 	$(docker_go) go build -o build/botboi .
 
-build: build_binaries
+build_image:
+	docker build -t bsdlp/botboi .
+
+build: build_binary build_image
+
+push_to_hub:
+	docker push bsdlp/botboi
+
+deploy: push_to_hub
