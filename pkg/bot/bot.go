@@ -2,14 +2,16 @@ package bot
 
 import (
 	"github.com/bsdlp/botboi/pkg/cfg"
+	"github.com/bsdlp/botboi/pkg/handlers"
 	"github.com/bwmarrin/discordgo"
 	"go.uber.org/zap"
 )
 
 // Bot implements the discord bot
 type Bot struct {
-	Config cfg.Config
-	Logger *zap.Logger
+	Config   cfg.Config
+	Logger   *zap.Logger
+	Handlers *handlers.Loader
 
 	discord *discordgo.Session
 }
@@ -23,6 +25,8 @@ func (bt *Bot) Run() error {
 		}
 		bt.discord = dg
 	}
+
+	bt.Handlers.Register(bt.discord)
 
 	return bt.discord.Open()
 }
