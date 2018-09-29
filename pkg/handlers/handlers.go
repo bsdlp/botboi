@@ -18,3 +18,11 @@ func (l *Loader) Register(session *discordgo.Session) {
 		session.AddHandler(handler)
 	}
 }
+
+// New loads all the handlers
+func New() (*Loader, error) {
+	loader := &Loader{
+		Handlers: []Handler{},
+	}
+	return loader, nil
+}

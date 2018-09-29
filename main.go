@@ -8,6 +8,7 @@ import (
 
 	"github.com/bsdlp/botboi/pkg/bot"
 	"github.com/bsdlp/botboi/pkg/cfg"
+	"github.com/bsdlp/botboi/pkg/handlers"
 	"github.com/kelseyhightower/envconfig"
 	"go.uber.org/zap"
 )
@@ -24,9 +25,15 @@ func main() {
 		logger.Fatal(err.Error())
 	}
 
+	handlers, err := handlers.New()
+	if err != nil {
+		logger.Fatal(err.Error())
+	}
+
 	bt := &bot.Bot{
-		Config: config,
-		Logger: logger,
+		Config:   config,
+		Logger:   logger,
+		Handlers: handlers,
 	}
 
 	err = bt.Run()
