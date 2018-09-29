@@ -14,7 +14,7 @@ test:
 	$(docker_go) go test ./...
 
 build_binary:
-	$(docker_go) go build -o build/botboi .
+	$(docker_go) go build -ldflags "-linkmode external -extldflags -static" -a -o build/botboi .
 
 build_image:
 	docker build -t bsdlp/botboi .
