@@ -17,12 +17,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer func() {
-		err = logger.Sync()
-		if err != nil {
-			log.Print(err)
-		}
-	}()
 
 	var config cfg.Config
 	err = envconfig.Process("botboi", &config)
