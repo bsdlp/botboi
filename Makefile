@@ -13,13 +13,13 @@ lint:
 test:
 	$(docker_go) go test ./...
 
-build_binary:
+binary:
 	$(docker_go) go build -ldflags "-linkmode external -extldflags -static" -a -o build/botboi .
 
-build_image:
+image:
 	docker build -t bsdlp/botboi .
 
-build: build_binary build_image
+build: binary image
 
 push_to_hub:
 	docker push bsdlp/botboi
