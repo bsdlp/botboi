@@ -1,6 +1,9 @@
 package handlers
 
-import "github.com/bwmarrin/discordgo"
+import (
+	"github.com/bwmarrin/discordgo"
+	"go.uber.org/zap"
+)
 
 // Handler describes a handler
 type Handler interface {
@@ -9,20 +12,10 @@ type Handler interface {
 
 // Loader holds all of the handlers
 type Loader struct {
-	Handlers []Handler
+	Logger *zap.SugaredLogger
 }
 
 // Register registers all handlers
 func (l *Loader) Register(session *discordgo.Session) {
-	for _, handler := range l.Handlers {
-		session.AddHandler(handler)
-	}
-}
-
-// New loads all the handlers
-func New() (*Loader, error) {
-	loader := &Loader{
-		Handlers: []Handler{},
-	}
-	return loader, nil
+	newGuildEmojiHandler(l.Logger).Register(session)
 }

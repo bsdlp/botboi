@@ -10,7 +10,7 @@ import (
 // Bot implements the discord bot
 type Bot struct {
 	Config   cfg.Config
-	Logger   *zap.Logger
+	Logger   *zap.SugaredLogger
 	Handlers *handlers.Loader
 
 	discord *discordgo.Session

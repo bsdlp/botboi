@@ -25,15 +25,11 @@ func main() {
 		logger.Fatal(err.Error())
 	}
 
-	handlers, err := handlers.New()
-	if err != nil {
-		logger.Fatal(err.Error())
-	}
-
+	sugaredLogger := logger.Sugar()
 	bt := &bot.Bot{
 		Config:   config,
-		Logger:   logger,
-		Handlers: handlers,
+		Logger:   sugaredLogger,
+		Handlers: &handlers.Loader{Logger: sugaredLogger},
 	}
 
 	err = bt.Run()
