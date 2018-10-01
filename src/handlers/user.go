@@ -2,17 +2,13 @@ package handlers
 
 import "github.com/bwmarrin/discordgo"
 
-var userID string
+var user *discordgo.User
 
-func botUserID(session *discordgo.Session) (string, error) {
-	if userID != "" {
-		return userID, nil
+func botUser(session *discordgo.Session) (*discordgo.User, error) {
+	if user != nil {
+		return user, nil
 	}
-	user, err := session.User("@me")
-	if err != nil {
-		return "", err
-	}
-
-	userID = user.ID
-	return userID, nil
+	var err error
+	user, err = session.User("@me")
+	return user, err
 }

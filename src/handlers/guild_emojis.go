@@ -99,16 +99,16 @@ func filterEmojiRoleAccess(emoji []*discordgo.Emoji, roles []string) []*discordg
 }
 
 func (ge *guildEmoji) usableEmoji(s *discordgo.Session, emoji []*discordgo.Emoji, guildID string) []*discordgo.Emoji {
-	botUserID, err := botUserID(s)
+	botUser, err := botUser(s)
 	if err != nil {
 		ge.logger.Errorw(
 			"failure", err.Error(),
-			"action", "guildEmoji botUserID",
+			"action", "guildEmoji botUser",
 		)
 		return nil
 	}
 
-	member, err := s.GuildMember(guildID, botUserID)
+	member, err := s.GuildMember(guildID, botUser.ID)
 	if err != nil {
 		ge.logger.Errorw(
 			"failure", err.Error(),
