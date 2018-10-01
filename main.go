@@ -6,9 +6,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/bsdlp/botboi/pkg/bot"
-	"github.com/bsdlp/botboi/pkg/cfg"
-	"github.com/bsdlp/botboi/pkg/handlers"
+	"github.com/bsdlp/botboi/src/bot"
+	"github.com/bsdlp/botboi/src/cfg"
+	"github.com/bsdlp/botboi/src/handlers"
 	"github.com/kelseyhightower/envconfig"
 	"go.uber.org/zap"
 )

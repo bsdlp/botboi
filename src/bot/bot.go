@@ -1,8 +1,8 @@
 package bot
 
 import (
-	"github.com/bsdlp/botboi/pkg/cfg"
-	"github.com/bsdlp/botboi/pkg/handlers"
+	"github.com/bsdlp/botboi/src/cfg"
+	"github.com/bsdlp/botboi/src/handlers"
 	"github.com/bwmarrin/discordgo"
 	"go.uber.org/zap"
 )
