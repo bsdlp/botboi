@@ -7,7 +7,6 @@ import (
 	"syscall"
 
 	"github.com/bsdlp/botboi/src/bot"
-	"github.com/bsdlp/botboi/src/cfg"
 	"github.com/bsdlp/botboi/src/handlers"
 	"github.com/kelseyhightower/envconfig"
 	"go.uber.org/zap"
@@ -19,7 +18,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var config cfg.Config
+	var config bot.Config
 	err = envconfig.Process("botboi", &config)
 	if err != nil {
 		logger.Fatal(err.Error())

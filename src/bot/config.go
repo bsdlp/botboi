@@ -1,4 +1,4 @@
-package cfg
+package bot
 
 // Config holds configuration options for botboi
 type Config struct {

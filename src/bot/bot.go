@@ -1,7 +1,6 @@
 package bot
 
 import (
-	"github.com/bsdlp/botboi/src/cfg"
 	"github.com/bsdlp/botboi/src/handlers"
 	"github.com/bwmarrin/discordgo"
 	"go.uber.org/zap"
@@ -9,7 +8,7 @@ import (
 
 // Bot implements the discord bot
 type Bot struct {
-	Config   cfg.Config
+	Config   Config
 	Logger   *zap.SugaredLogger
 	Handlers *handlers.Loader
 
