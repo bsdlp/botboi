@@ -7,7 +7,7 @@ import (
 	"go.uber.org/zap"
 )
 
-// `list emoji` returns all emojis in this guild
+// `list emotes` returns all emojis in this guild
 type guildEmoji struct {
 	logger *zap.SugaredLogger
 }
@@ -28,7 +28,7 @@ func formatEmoji(emoji *discordgo.Emoji) string {
 }
 
 func (ge *guildEmoji) handleMessage(s *discordgo.Session, m *discordgo.Message) {
-	if m.Content != `list emoji` {
+	if m.Content != `list emotes` {
 		return
 	}
 
